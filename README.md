@@ -1,4 +1,12 @@
 # CPCS4175_GroupProject1
 
+Title: Project 1: CSU batch 
+Members: Lauren Arthur and Sharon Deloach 
 
-On this branch I have posted all the code that the porfessor provided. 
+Configuration Instructions:
+
+
+Installations Instructions:
+
+
+Perating Instructions:
