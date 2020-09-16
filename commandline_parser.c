@@ -92,6 +92,21 @@ int cmd_helpmenu(int n, char **a)
 }
 
 /*
+ * The list command.
+ */
+int cmd_list(int nargs, char **args) {
+	printf("Please display performance information before exiting csubatch!\n");
+        exit(0);
+}
+
+/*
+ * The test command.
+ */
+int cmd_test(int nargs, char **args) {
+	printf("Please display performance information before exiting csubatch!\n");
+        exit(0);
+}
+/*
  *  Command table.
  */
 static struct {
@@ -107,6 +122,10 @@ static struct {
 	{ "q\n",	cmd_quit },
 	{ "quit\n",	cmd_quit },
         /* Please add more operations below. */
+    {"l\n",	cmd_list },
+	{ "list\n",	cmd_list },
+    {"t\n",	cmd_test },
+	{ "test\n",	cmd_test},
         {NULL, NULL}
 };
 
