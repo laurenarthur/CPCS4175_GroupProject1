@@ -4,6 +4,7 @@
 #include <string.h>
 #include <sys/types.h>
 
+#include "global.h"
 #include "queue.h"
 
 int run_job_process(){
@@ -12,6 +13,7 @@ int run_job_process(){
     pid_t child_running = fork();
 
     //creating  something to pull execution time out of queue to display 
+     char *temp[] = {"<execution time>", NULL};
 
     if(child_running<0){
         printf("Failed\n");
@@ -20,7 +22,7 @@ int run_job_process(){
 
     if(child_running==0){
         //simulate a job running 
-        execv("./process");
+        execv("./process", temp);
     }
 
     int statusOfjob;

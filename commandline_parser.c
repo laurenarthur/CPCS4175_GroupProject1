@@ -15,6 +15,8 @@
 #include "queue.h"
 #include "policies.h"
 #include "global.h"
+#include "scheduling.h"
+#include "parser.h"
 
 /* Error Code */
 #define EINVAL       1
@@ -173,6 +175,13 @@ static struct {
 
     {"t\n",	cmd_test },
 	{ "test\n",	cmd_test},
+
+    {"FCFS\n", cmd_fcfs},
+    {"fcfs\n", cmd_fcfs},
+    {"SJF\n", cmd_sjf},
+    {"sjf\n", cmd_sjf},
+    {"priority\n", cmd_priority},
+    {"p\n", cmd_priority},
         {NULL, NULL}
 };
 
@@ -221,7 +230,7 @@ int cmd_dispatch(char *cmd)
 /*
  * Command line main loop.
  */
-int main()
+int parse()
 {
     policy = FCFS;
 

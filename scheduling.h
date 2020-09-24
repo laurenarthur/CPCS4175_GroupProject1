@@ -3,9 +3,9 @@
 
 #include "queue.h"
 
-void orderFCFS();
-void orderSJF();
-void orderPriority();
+int orderFCFS();
+int orderSJF();
+int orderPriority();
 void print_policy();
 
 #endif

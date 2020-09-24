@@ -1,11 +1,15 @@
 #ifndef QUEUE_H
 #define QUEUE_H
 
+#include <time.h> 
+
+//Node structure for jobs
 typedef struct Node
 {
     char *name;
     int jobTime;
     int jobPriority;
+    clock_t arrivalTime; //only for FCFS
     struct Node *next;
 } Node;
 
@@ -16,7 +20,7 @@ typedef struct Queue
 } Queue;
 
 Queue* initializeQueue();
-// TODO: change to use global queue - jobQueue
+
 void enQueue(Node *newNode );
 Node* deQueue();
 void printQueue();
