@@ -13,6 +13,8 @@
 #include <string.h>
 
 #include "queue.h"
+#include "policies.h"
+#include "global.h"
 
 /* Error Code */
 #define EINVAL       1
@@ -53,20 +55,20 @@ int cmd_run(int nargs, char **args) {
  * FCFS command 
  */
 int cmd_fcfs(){
-    
+    return orderFCFS();
 }
 
 /*
  * SJF command
  */
 int cmd_sjf(){
-    
+    return orderSJF();
 }
  /*
  * Priority command 
  */
  int cmd_priority(){
-    
+    return orderPriority();
 }
 
 /*
@@ -108,6 +110,11 @@ static const char *helpmenu[] = {
 	"[quit] Exit csubatch                 ",
 	"[help] Print help menu              ",
         /* Please add more menu options below */
+    "[list] Display the job status",
+    "[fcfs] Change the scheduling policy to FCFS",
+    "[sjf] Change the scheduling policy to SJF",
+    "[priority] Change the scheduling policy to priority",
+    "[test] <benchmark> <policy> <num_of_jobs> <priority_levels> <min_CPU_time> <max_CPU_time>",
 	NULL
 };
 
@@ -130,6 +137,7 @@ int cmd_list(int nargs) {
     }
     print_number_jobs();
     printQueue();
+    print_policy();
     return 0;
 }
 
@@ -139,6 +147,7 @@ int cmd_list(int nargs) {
 int cmd_test(int nargs) {
 	if(nargs != 4){
         //print what job it was on 
+        printf("Usage: run <job> <time> <priority>\n");
         return EINVAL;
     }
     return 0;
@@ -161,6 +170,7 @@ static struct {
         /* Please add more operations below. */
     {"l\n",	cmd_list },
 	{ "list\n",	cmd_list },
+
     {"t\n",	cmd_test },
 	{ "test\n",	cmd_test},
         {NULL, NULL}
@@ -213,6 +223,8 @@ int cmd_dispatch(char *cmd)
  */
 int main()
 {
+    policy = FCFS;
+
 	char *buffer;
         size_t bufsize = 64;
         
@@ -221,6 +233,9 @@ int main()
  		perror("Unable to malloc buffer");
  		exit(1);
 	}
+
+    printf("Welcome to Lauren and Sharon's batch job scheduler Version 1.0\n");
+    printf("Type 'help' to find more about CSUbatch commands.\n");
  
     while (1) {
 		printf("> [? for menu]: ");

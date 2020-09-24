@@ -20,7 +20,7 @@ int run_job_process(){
 
     if(child_running==0){
         //simulate a job running 
-        exec();
+        execv("./process");
     }
 
     int statusOfjob;
