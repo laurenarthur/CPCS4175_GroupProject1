@@ -12,6 +12,8 @@
 #include <assert.h>
 #include <string.h>
 
+#include "queue.h"
+
 /* Error Code */
 #define EINVAL       1
 #define E2BIG        2
@@ -26,6 +28,13 @@ void showmenu(const char *name, const char *x[]);
 int cmd_helpmenu(int n, char **a);
 int cmd_dispatch(char *cmd);
 
+int cmd_fcfs();
+int cmd_sjf();
+int cmd_priority();
+
+int cmd_list(int nargs);
+int cmd_test(int nargs);
+
 /*
  * The run command - submit a job.
  */
@@ -38,6 +47,26 @@ int cmd_run(int nargs, char **args) {
         /* Use execv to run the submitted job in csubatch */
         printf("use execv to run the job in csubatch.\n");
       	return 0; /* if succeed */
+}
+
+/*
+ * FCFS command 
+ */
+int cmd_fcfs(){
+    
+}
+
+/*
+ * SJF command
+ */
+int cmd_sjf(){
+    
+}
+ /*
+ * Priority command 
+ */
+ int cmd_priority(){
+    
 }
 
 /*
@@ -94,17 +123,25 @@ int cmd_helpmenu(int n, char **a)
 /*
  * The list command.
  */
-int cmd_list(int nargs, char **args) {
-	printf("Please display performance information before exiting csubatch!\n");
-        exit(0);
+int cmd_list(int nargs) {
+	if(nargs != 1){
+        //print list of jobs in the queue that are running and pending 
+        return EINVAL;
+    }
+    print_number_jobs();
+    printQueue();
+    return 0;
 }
 
 /*
  * The test command.
  */
-int cmd_test(int nargs, char **args) {
-	printf("Please display performance information before exiting csubatch!\n");
-        exit(0);
+int cmd_test(int nargs) {
+	if(nargs != 4){
+        //print what job it was on 
+        return EINVAL;
+    }
+    return 0;
 }
 /*
  *  Command table.
