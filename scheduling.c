@@ -1,3 +1,4 @@
+#include <cstddef>
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -40,7 +41,28 @@ int orderFCFS(){
     }
 
     Node *temp_pointer = job_queue -> head; //assigns the current jobQueue as head.
-    
+    //pthread_mutex_lock(temp_pointer); //Locks the jobqueue?
+
+    while(temp_pointer != NULL){
+
+        Node *min = temp_pointer;
+        Node *temp_node = temp_pointer -> next;
+
+        while(temp_node != NULL){
+            if(min -> arrivalTime > temp_node -> arrivalTime){
+                min = temp_node;
+            }
+            temp_node = temp_node -> next;
+        }
+            if(temp_pointer != min){
+                swap_nodes(temp_pointer, min);
+                temp_pointer = temp_pointer -> next;
+            }
+            else{
+                temp_pointer = temp_pointer -> next;
+            } 
+        }
+
 
     printf("Scheduiling policy is switched to FCFS. All the %d waiting jobs have been rescheduled.\n", job_queue->size);
     policy = FCFS;
@@ -63,7 +85,27 @@ int orderSJF(){
     }
 
     Node *temp_pointer = job_queue -> head; //assigns the current jobQueue as head.
+    //pthread_mutex_lock(temp_pointer); //Locks the jobqueue?
 
+    while(temp_pointer != NULL){
+
+        Node *min = temp_pointer;
+        Node *temp_node = temp_pointer -> next;
+
+        while(temp_node != NULL){
+            if(min -> jobTime > temp_node -> jobTime){
+                min = temp_node;
+            }
+            temp_node = temp_node -> next;
+        }
+            if(temp_pointer != min){
+                swap_nodes(temp_pointer, min);
+                temp_pointer = temp_pointer -> next;
+            }
+            else{
+                temp_pointer = temp_pointer -> next;
+            } 
+        }
 
     printf("Scheduiling policy is switched to SJF. All the %d waiting jobs have been rescheduled.\n", job_queue->size);
     policy = FCFS;
@@ -86,6 +128,28 @@ int orderPriority(){
     }
 
     Node *temp_pointer = job_queue -> head; //assigns the current jobQueue as head.
+
+    //pthread_mutex_lock(temp_pointer); //Locks the jobqueue?
+
+    while(temp_pointer != NULL){
+
+        Node *min = temp_pointer;
+        Node *temp_node = temp_pointer -> next;
+
+        while(temp_node != NULL){
+            if(min -> jobPriority > temp_node -> jobPriority){
+                min = temp_node;
+            }
+            temp_node = temp_node -> next;
+        }
+            if(temp_pointer != min){
+                swap_nodes(temp_pointer, min);
+                temp_pointer = temp_pointer -> next;
+            }
+            else{
+                temp_pointer = temp_pointer -> next;
+            } 
+        }
 
     printf("Scheduiling policy is switched to Priority. All the %d waiting jobs have been rescheduled.\n", job_queue->size);
     policy = FCFS;
