@@ -130,9 +130,9 @@ void showmenu(const char *x[])
 
 	for (i=0; i<half; i++) {
 		printf("    %-36s", x[i]);
-		//if (i+half < ct) {
-		//	printf("%s", x[i+half]);
-		//}
+		if (i+half < ct) {
+		    printf("%s", x[i+half]);
+		}
 		printf("\n");
 	}
 
