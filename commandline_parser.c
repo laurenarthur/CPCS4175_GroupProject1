@@ -291,9 +291,9 @@ int parse()
         
         buffer = (char*) malloc(bufsize * sizeof(char));
         if (buffer == NULL) {
- 		perror("Unable to malloc buffer");
- 		exit(1);
-	}
+            perror("Unable to malloc buffer");
+            exit(1);
+	    }
 
     printf("Welcome to Lauren and Sharon's batch job scheduler Version 1.0\n");
     printf("Type 'help' to find more about CSUbatch commands.\n");
@@ -302,6 +302,7 @@ int parse()
 		printf("> [? for menu]: ");
 		getline(&buffer, &bufsize, stdin);
 		cmd_dispatch(buffer);
+        printf("\n");
 	}
         return 0;
 }
