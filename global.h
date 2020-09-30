@@ -6,5 +6,6 @@
 
 Queue *job_queue; // Creates the queue and stores it in jobQueue
 enum scheduling_policies policy;
+int parse();
 
 #endif

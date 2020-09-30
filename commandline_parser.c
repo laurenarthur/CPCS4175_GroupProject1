@@ -76,6 +76,7 @@ int cmd_fcfs(int nargs){
         printf("The \"FCFS\" command does not accept any flags.\n");
         return EINVAL;
     }
+    
     return orderFCFS();
 }
 
@@ -207,26 +208,25 @@ static struct {
 	int (*func)(int nargs, char **args);
 } cmdtable[] = {
 	/* commands: single command must end with \n */
-	{ "?\n",	cmd_helpmenu },
-	{ "h\n",	cmd_helpmenu },
-	{ "help\n",	cmd_helpmenu },
+	{ "?",	cmd_helpmenu },
+	{ "h",	cmd_helpmenu },
+	{ "help",	cmd_helpmenu },
 	{ "r",		cmd_run },
 	{ "run",	cmd_run },
-	{ "q\n",	cmd_quit },
-	{ "quit\n",	cmd_quit },
+	{ "q",	cmd_quit },
+	{ "quit",	cmd_quit },
         /* Please add more operations below. */
-    {"l\n",	cmd_list },
-	{ "list\n",	cmd_list },
+    {"l",	cmd_list },
+	{ "list",	cmd_list },
 
-    {"t\n",	cmd_test },
-	{ "test\n",	cmd_test},
-
-    {"FCFS\n", cmd_fcfs},
-    {"fcfs\n", cmd_fcfs},
-    {"SJF\n", cmd_sjf},
-    {"sjf\n", cmd_sjf},
-    {"priority\n", cmd_priority},
-    {"p\n", cmd_priority},
+    {"t",	cmd_test },
+	{ "test",	cmd_test},
+    {"FCFS", cmd_fcfs},
+    {"fcfs", cmd_fcfs},
+    {"SJF", cmd_sjf},
+    {"sjf", cmd_sjf},
+    {"priority", cmd_priority},
+    {"p", cmd_priority},
         {NULL, NULL}
 };
 

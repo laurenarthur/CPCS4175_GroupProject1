@@ -74,7 +74,7 @@ void printQueue(){
         {
             snprintf(str_time, 10, "%d", tempNode->jobTime);
             snprintf(str_pri, 5, "%d", tempNode->jobPriority);
-            snprintf("%-15s%-11s%-3s\n", tempNode->name, str_time, str_pri);
+            printf("%-15s%-11s%-3s\n", tempNode->name, str_time, str_pri);
             tempNode = tempNode->next;
         }
     }

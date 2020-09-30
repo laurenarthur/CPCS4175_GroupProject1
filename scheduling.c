@@ -39,26 +39,26 @@ int orderFCFS(){
         return 0;
     }
 
-    Node *temp_pointer = job_queue -> head; //assigns the current jobQueue as head.
-    //pthread_mutex_lock(temp_pointer); //Locks the jobqueue?
+    Node *tempPointer = job_queue -> head; //assigns the current jobQueue as head.
+    //pthread_mutex_lock(tempPointer); //Locks the jobqueue?
 
-    while(temp_pointer != NULL){
+    while(tempPointer != NULL){
 
-        Node *min = temp_pointer;
-        Node *temp_node = temp_pointer -> next;
+        Node *min = tempPointer;
+        Node *tempNode = tempPointer -> next;
 
-        while(temp_node != NULL){
-            if(min -> arrivalTime > temp_node -> arrivalTime){
-                min = temp_node;
+        while(tempNode != NULL){
+            if(min -> arrivalTime > tempNode -> arrivalTime){
+                min = tempNode;
             }
-            temp_node = temp_node -> next;
+            tempNode = tempNode -> next;
         }
-            if(temp_pointer != min){
-                swap_nodes(temp_pointer, min);
-                temp_pointer = temp_pointer -> next;
+            if(tempPointer != min){
+                swap_nodes(tempPointer, min);
+                tempPointer = tempPointer -> next;
             }
             else{
-                temp_pointer = temp_pointer -> next;
+                tempPointer = tempPointer -> next;
             } 
         }
 
@@ -83,26 +83,26 @@ int orderSJF(){
         return 0;
     }
 
-    Node *temp_pointer = job_queue -> head; //assigns the current jobQueue as head.
-    //pthread_mutex_lock(temp_pointer); //Locks the jobqueue?
+    Node *tempPointer = job_queue -> head; //assigns the current jobQueue as head.
+    //pthread_mutex_lock(tempPointer); //Locks the jobqueue?
 
-    while(temp_pointer != NULL){
+    while(tempPointer != NULL){
 
-        Node *min = temp_pointer;
-        Node *temp_node = temp_pointer -> next;
+        Node *min = tempPointer;
+        Node *tempNode = tempPointer -> next;
 
-        while(temp_node != NULL){
-            if(min -> jobTime > temp_node -> jobTime){
-                min = temp_node;
+        while(tempNode != NULL){
+            if(min -> jobTime > tempNode -> jobTime){
+                min = tempNode;
             }
-            temp_node = temp_node -> next;
+            tempNode = tempNode -> next;
         }
-            if(temp_pointer != min){
-                swap_nodes(temp_pointer, min);
-                temp_pointer = temp_pointer -> next;
+            if(tempPointer != min){
+                swap_nodes(tempPointer, min);
+                tempPointer = tempPointer -> next;
             }
             else{
-                temp_pointer = temp_pointer -> next;
+                tempPointer = tempPointer -> next;
             } 
         }
 
@@ -126,27 +126,27 @@ int orderPriority(){
         return 0;
     }
 
-    Node *temp_pointer = job_queue -> head; //assigns the current jobQueue as head.
+    Node *tempPointer = job_queue -> head; //assigns the current jobQueue as head.
 
-    //pthread_mutex_lock(temp_pointer); //Locks the jobqueue?
+    //pthread_mutex_lock(tempPointer); //Locks the jobqueue?
 
-    while(temp_pointer != NULL){
+    while(tempPointer != NULL){
 
-        Node *min = temp_pointer;
-        Node *temp_node = temp_pointer -> next;
+        Node *min = tempPointer;
+        Node *tempNode = tempPointer -> next;
 
-        while(temp_node != NULL){
-            if(min -> jobPriority > temp_node -> jobPriority){
-                min = temp_node;
+        while(tempNode != NULL){
+            if(min -> jobPriority > tempNode -> jobPriority){
+                min = tempNode;
             }
-            temp_node = temp_node -> next;
+            tempNode = tempNode -> next;
         }
-            if(temp_pointer != min){
-                swap_nodes(temp_pointer, min);
-                temp_pointer = temp_pointer -> next;
+            if(tempPointer != min){
+                swap_nodes(tempPointer, min);
+                tempPointer = tempPointer -> next;
             }
             else{
-                temp_pointer = temp_pointer -> next;
+                tempPointer = tempPointer -> next;
             } 
         }
 
