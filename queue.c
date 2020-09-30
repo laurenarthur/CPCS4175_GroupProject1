@@ -20,7 +20,7 @@ void enQueue(Node *newNode){
     //empty queue = set head and tail to new node 
     if(job_queue->size == 0){
         job_queue->head = job_queue->tail = newNode;
-        job_queue->tail = job_queue->tail->next;
+        job_queue->tail->next = NULL;
         job_queue->size++;
     }
     else{

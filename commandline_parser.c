@@ -127,12 +127,13 @@ void showmenu(const char *x[])
 		ct++;
 	}
 	half = (ct+1)/2;
+    printf("\n");
 
 	for (i=0; i<half; i++) {
 		printf("    %-36s", x[i]);
-		//if (i+half < ct) {
-		//	printf("%s", x[i+half]);
-		//}
+		if (i+half < ct) {
+			printf("%s", x[i+half]);
+		}
 		printf("\n");
 	}
 
@@ -144,7 +145,7 @@ static const char *helpmenu[] = {
 	"[quit] Exit csubatch                 ",
 	"[help] Print help menu              ",
         /* Please add more menu options below */
-    "[list] Display the job status",
+    "[list] Display the job status"
     "[fcfs] Change the scheduling policy to FCFS",
     "[sjf] Change the scheduling policy to SJF",
     "[priority] Change the scheduling policy to priority",
