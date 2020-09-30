@@ -122,12 +122,10 @@ void showmenu(const char *x[])
 
 	printf("\n");
 	//printf("%s\n", name);
-	
 	for (i=ct=0; x[i]; i++) {
 		ct++;
 	}
 	half = (ct+1)/2;
-    printf("\n");
 
 	for (i=0; i<half; i++) {
 		printf("    %-36s", x[i]);
