@@ -232,6 +232,7 @@ int cmd_dispatch(char *cmd)
  */
 int parse()
 {
+    job_queue=initializeQueue();
     policy = FCFS;
 
 	char *buffer;
