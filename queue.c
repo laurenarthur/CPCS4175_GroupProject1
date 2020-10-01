@@ -6,9 +6,10 @@
 #include "queue.h"
 #include "global.h"
 
-int TAT = 32;
-int CPUT = 15;
-int WT= 16;
+//placeholders to print out 
+int TAT = 0.0;
+int CPUT = 0.0;
+int WT= 0.0;
 
 //Initializes a queue and returns it 
 Queue* initializeQueue(){
@@ -88,14 +89,19 @@ void print_num_jobs(){
     printf("Total number of jobs: %d\n", job_queue->size);
 }
 
+//Just trying to put place holders right now tell I can figure out how to actually caculate these times 
 void print_turnaround_time(){
+    //turn around time = waiting_time + burst_time for all processes
+    //average = toatl_turn_around_time / number_of_processes
     printf("Average turnaround time: %d\n", TAT);
 }
 
 void print_CPU_time(){
+    //amount of time from when a request was submitted until the first response is produced 
     printf("Average CPU time: %d\n", CPUT);
 }
 
 void print_waiting_time(){
+    //waiting time = total_waiting_time / number_of_processes
     printf("Average waiting time: %d\n", WT);
 }
