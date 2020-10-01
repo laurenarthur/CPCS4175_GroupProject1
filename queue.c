@@ -1,3 +1,4 @@
+#include <bits/types/locale_t.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -11,6 +12,10 @@ int TAT = 0.0;
 int CPUT = 0.0;
 int WT= 0.0;
 
+time_t arrivalT, val = 1;
+struct tm* current_time;
+
+
 //Initializes a queue and returns it 
 Queue* initializeQueue(){
     Queue *queue = (Queue*) malloc(sizeof(Queue));
@@ -21,6 +26,8 @@ Queue* initializeQueue(){
 
 void enQueue(Node *newNode){
     newNode->arrivalTime = clock();
+    
+
 
     //empty queue = set head and tail to new node 
     if(job_queue->size == 0){
@@ -75,11 +82,17 @@ void printQueue(){
         Node *tempNode = job_queue->head;
         char str_time[11];
         char str_pri[6];
+
+        arrivalT = time(NULL);
+        current_time = localtime(&arrivalT); //Cant get time to update for each node.
+        
+
         while (tempNode != NULL)
         {
+            
             snprintf(str_time, 10, "%d", tempNode->jobTime);
             snprintf(str_pri, 5, "%d", tempNode->jobPriority);
-            printf("%-15s%-11s%-3s\n", tempNode->name, str_time, str_pri);
+            printf("%-15s%-11s%-3s %02d:%02d:%02d\n", tempNode->name, str_time, str_pri, current_time->tm_hour, current_time->tm_min, current_time->tm_sec);
             tempNode = tempNode->next;
         }
     }
@@ -91,6 +104,8 @@ void print_num_jobs(){
 
 //Just trying to put place holders right now tell I can figure out how to actually caculate these times 
 void print_turnaround_time(){
+    int num;
+    int ct[10];
     //turn around time = waiting_time + burst_time for all processes
     //average = toatl_turn_around_time / number_of_processes
     printf("Average turnaround time: %d\n", TAT);
@@ -103,5 +118,6 @@ void print_CPU_time(){
 
 void print_waiting_time(){
     //waiting time = total_waiting_time / number_of_processes
+    
     printf("Average waiting time: %d\n", WT);
 }
