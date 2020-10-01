@@ -27,4 +27,8 @@ void printQueue();
 void print_num_jobs();
 void swap_nodes(Node *node1, Node *node2);
 
+void print_turnaround_time();
+void print_CPU_time();
+void print_waiting_time();
+
 #endif

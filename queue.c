@@ -6,6 +6,10 @@
 #include "queue.h"
 #include "global.h"
 
+int TAT = 32;
+int CPUT = 15;
+int WT= 16;
+
 //Initializes a queue and returns it 
 Queue* initializeQueue(){
     Queue *queue = (Queue*) malloc(sizeof(Queue));
@@ -82,4 +86,16 @@ void printQueue(){
 
 void print_num_jobs(){
     printf("Total number of jobs: %d\n", job_queue->size);
+}
+
+void print_turnaround_time(){
+    printf("Average turnaround time: %d\n", TAT);
+}
+
+void print_CPU_time(){
+    printf("Average CPU time: %d\n", CPUT);
+}
+
+void print_waiting_time(){
+    printf("Average waiting time: %d\n", WT);
 }
