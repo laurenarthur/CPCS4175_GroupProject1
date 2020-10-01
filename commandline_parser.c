@@ -109,7 +109,8 @@ int cmd_quit(int nargs, char **args) {
         printf("The \"quit\" command does not accept any flags.\n");
         return EINVAL;
     }
-	printf("Please display performance information before exiting csubatch!\n");
+	print_num_jobs();
+    
         exit(0);
 }
 

@@ -81,5 +81,5 @@ void printQueue(){
 }
 
 void print_num_jobs(){
-    printf("Total number of jobs in the queue: %d\n", job_queue->size);
+    printf("Total number of jobs: %d\n", job_queue->size);
 }
