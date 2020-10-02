@@ -110,10 +110,10 @@ int cmd_quit(int nargs, char **args) {
         return EINVAL;
     }
 	print_num_jobs();
-
+    printf("\n");
     print_turnaround_time();
-    print_CPU_time();
-    print_waiting_time();
+    //print_CPU_time();
+    //print_waiting_time();
     
         exit(0);
 }

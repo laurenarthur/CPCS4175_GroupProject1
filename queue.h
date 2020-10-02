@@ -10,6 +10,8 @@ typedef struct Node
     int jobTime;
     int jobPriority;
     clock_t arrivalTime; //only for FCFS
+    clock_t end;
+    struct tm *current_time;
     struct Node *next;
 } Node;
 
