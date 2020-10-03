@@ -76,7 +76,7 @@ int cmd_fcfs(int nargs){
         printf("The \"FCFS\" command does not accept any flags.\n");
         return EINVAL;
     }
-    policy = 1;
+    policy = FCFS;
     
     return orderFCFS();
 }
@@ -89,7 +89,7 @@ int cmd_sjf(int nargs){
         printf("The \"SJF\" command does not accept any flags.\n");
         return EINVAL;
     }
-    policy = 2;
+    policy = SJF;
     return orderSJF();
 }
  /*
@@ -100,7 +100,7 @@ int cmd_sjf(int nargs){
          printf("The \"Prioritty\" command does not accept any flags.\n");
          return EINVAL;
      }
-     policy = 3;
+     policy = PRIORITY;
     return orderPriority();
 }
 
