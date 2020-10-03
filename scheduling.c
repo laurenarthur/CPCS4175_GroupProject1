@@ -13,10 +13,10 @@
 * Prints the policy according to whats selected by the user 
 */
 void print_policy(){
-    if(policy == FCFS){
+    if(policy == 1){
         printf("Scheduling Policy: FCFS.\n");
     }
-    else if(policy == SJF){
+    else if(policy == 2){
         printf("Scheduling Policy: SJF.\n");
     }
     else{
