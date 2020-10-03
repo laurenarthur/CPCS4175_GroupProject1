@@ -19,7 +19,7 @@ void print_policy(){
     else if(policy == 1){
         printf("Scheduling Policy: SJF.\n");
     }
-    else{
+    else if(policy == 2){
         printf("Scheduling Policy: Priority.\n");
     }
 }
@@ -107,7 +107,7 @@ int orderSJF(){
         }
 
     printf("Scheduiling policy is switched to SJF. All the %d waiting jobs have been rescheduled.\n", job_queue->size);
-    policy = FCFS;
+    policy = SJF;
     return 0;
 }
 
@@ -151,6 +151,6 @@ int orderPriority(){
         }
 
     printf("Scheduiling policy is switched to Priority. All the %d waiting jobs have been rescheduled.\n", job_queue->size);
-    policy = FCFS;
+    policy = PRIORITY;
     return 0;
 }
