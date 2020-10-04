@@ -16,6 +16,7 @@ int num;
 
 time_t arrivalT, val = 1;
 struct tm* current_time;
+struct tm* new_time;
 
 
 //Initializes a queue and returns it 
@@ -85,17 +86,33 @@ void printQueue(){
         char str_time[11];
         char str_pri[6];
 
+        int seconds = {rand() % 20};
+
         arrivalT = time(NULL);
         current_time = localtime(&arrivalT); //Cant get time to update for each node.
         
 
         while (tempNode != NULL)
         {
+            tempNode->arrivalTime = clock();
             
             snprintf(str_time, 10, "%d", tempNode->jobTime);
             snprintf(str_pri, 5, "%d", tempNode->jobPriority);
             printf("%-15s%-11s%-3s %02d:%02d:%02d\n", tempNode->name, str_time, str_pri, current_time->tm_hour, current_time->tm_min, current_time->tm_sec);
             tempNode = tempNode->next;
+            //tempNode -> current_time -> tm_sec+=seconds;
+
+            if(current_time -> tm_sec == 60 || current_time -> tm_sec > 55 ){
+                current_time ->tm_min++;
+                current_time -> tm_sec = 0;
+                current_time -> tm_sec+=seconds;
+            }
+            else{
+                current_time -> tm_sec+=seconds;
+            }
+            
+
+            
         }
     }
 }

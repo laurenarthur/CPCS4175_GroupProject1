@@ -13,6 +13,7 @@ typedef struct Node
     clock_t end;
     struct tm *current_time;
     struct Node *next;
+
 } Node;
 
 typedef struct Queue
