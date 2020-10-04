@@ -158,15 +158,16 @@ void print_turnaround_time() {
     //printf("Average turnaround time: %d\n", waitingtime(proc[job_queue->size, n, burst_time, wait_time));
 }
 
-void print_CPU_time(){
+
+//void print_CPU_time(){
     //amount of time from when a request was submitted until the first response is produced 
-    printf("Average CPU time: \n");
+    //printf("Average CPU time: \n");
 
     //printf("Average CPU time: %d\n", CPUT);
-}
+//}
 
-void print_waiting_time(){
+//void print_waiting_time(){
     //waiting time = total_waiting_time / number_of_processes
     
-    printf("Average waiting time: %d\n", WT);
-}
+   //printf("Average waiting time: %d\n", WT);
+//}
